@@ -12,7 +12,7 @@ public class RefTuple<V, R> {
         this.revision = r;
     }
 
-    static <V, R>  RefTuple get(V v, R r) {
+    static <V, R> RefTuple get(V v, R r) {
         return new RefTuple<V, R>(v, r);
     }
 }

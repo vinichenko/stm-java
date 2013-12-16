@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicLong;
 /**
  * @author mishadoff
  */
-public final class Transaction extends Context{
+public final class Transaction extends Context {
     private HashMap<Ref, Object> inTxMap = new HashMap<>();
     private HashSet<Ref> toUpdate = new HashSet<>();
     private HashMap<Ref, Long> version = new HashMap<>();
@@ -30,7 +30,7 @@ public final class Transaction extends Context{
                 version.put(ref, tuple.revision);
             }
         }
-        return (T)inTxMap.get(ref);
+        return (T) inTxMap.get(ref);
     }
 
     <T> void set(Ref<T> ref, T value) {

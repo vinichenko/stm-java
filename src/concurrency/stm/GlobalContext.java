@@ -9,7 +9,8 @@ import java.util.Map;
 public final class GlobalContext extends Context {
     private static GlobalContext instance = new GlobalContext();
 
-    private GlobalContext() { }
+    private GlobalContext() {
+    }
 
     public static GlobalContext get() {
         return instance;

@@ -4,11 +4,15 @@ package concurrency.stm;
  * @author mishadoff
  */
 public final class STM {
-    private STM() {}
+    private STM() {
+    }
 
     public static final Object commitLock = new Object();
 
-    public static void transaction(TransactionBlock block) {
+    public static <T> T transaction(TransactionBlock block, T value) {
+        ////
+        T returnValue = value;
+
         boolean committed = false;
         while (!committed) {
             Transaction tx = new Transaction();
@@ -16,6 +20,9 @@ public final class STM {
             block.run();
             committed = tx.commit();
         }
+
+        ////
+        return returnValue;
     }
 
 }
